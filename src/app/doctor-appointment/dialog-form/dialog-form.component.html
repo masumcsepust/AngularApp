@@ -1,0 +1,117 @@
+<form [formGroup]="form" class="container">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-lg-6 mt-2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="First_Name"
+            placeholder="first name"
+          >
+          <mat-error>
+            <div *ngIf="errorHandling('First_Name', 'required')">
+              You must provide <strong>first name</strong>
+            </div>
+            <div *ngIf="errorHandling('First_Name', 'maxlength')">
+              You must provide <strong>less than or equal to 40 characters</strong>
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 mt-2">
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="Last_Name"
+            placeholder="last name"
+          >
+          <mat-error>
+            <div *ngIf="errorHandling('Last_Name', 'required')">
+              You must provide <strong>last name</strong>
+            </div>
+            <div *ngIf="errorHandling('Last_Name', 'maxlength')">
+              You must provide <strong>less than or equal to 40 characters</strong>
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mt-2">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="Email"
+            placeholder="enter email"
+          >
+          <mat-error>
+            <div *ngIf="errorHandling('Email', 'required')">
+              You must provide <strong>email</strong>
+            </div>
+            <div *ngIf="errorHandling('Email', 'email')">
+              You must provide <strong> valid email</strong>
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 mt-2">
+          <mat-label class="mr-3">Gender:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="Gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mt-2">
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input
+            type="number"
+            matInput
+            formControlName="Age"
+            placeholder="enter age"
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 mt-2">
+        <mat-form-field appearance="fill">
+          <input
+            (focus)="date.open()"
+            formControlName="Date"
+            matInput
+            [matDatepicker]="date"
+            placeholder="Enter Date"
+            readonly
+          />
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mt-2">
+        <label for="Time">Time</label>
+          <ngx-timepicker-field
+          (timeChanged)="onChangeHour($event)"
+          [defaultTime]="dateTime">
+        </ngx-timepicker-field>
+      </div>
+    </div>
+  </div>
+ <div class="form-group mt-4">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mt-2">
+        <button type="button" [disabled]="form.invalid" (click)="onSubmit()"> Submit </button>
+        <button style="float: right;" type="button" (click)="closeDialog()"> Cancel </button>
+      </div>
+    </div>
+  </div>
+
+</form>

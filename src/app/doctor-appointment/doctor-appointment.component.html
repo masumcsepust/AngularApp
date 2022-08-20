@@ -1,0 +1,87 @@
+<div class="form-group mt-4">
+  <div class="row">
+    <div class="col-lg-6">
+      <select
+        [(ngModel)]="monthId"
+        (ngModelChange)="getMonthId($event)"
+        >
+        <option
+        *ngFor="let month of months" [value]="month.id"> {{month.name}}</option>
+      </select>
+    </div>
+    <div class="col-lg-6">
+      <button style="float: right; margin-right: 20em" type="button" (click)="openDialog()">create new appointment</button>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <table class="table table-bordered">
+    <ng-container *ngFor="let in of counter(dayCount);let i=index" >
+    <ng-container *ngIf="getRowNumber(i)==0" >
+      <tr>
+      <td>
+        {{getDay(i+1)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+1)">
+          <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+          <mat-icon (click)="editData(d)">create</mat-icon>
+          <br>
+        </ng-container>
+        </div>
+      </td>
+      <td>
+        {{getDay(i+2)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+2)">
+            <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+            <mat-icon (click)="editData(d)">create</mat-icon>
+            <br>
+          </ng-container>
+          </div>
+      </td>
+      <td>
+        {{getDay(i+3)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+3)">
+            <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+            <mat-icon (click)="editData(d)">create</mat-icon>
+            <br>
+          </ng-container>
+        </div>
+      </td>
+      <td>
+        {{getDay(i+4)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+4)">
+            <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+            <mat-icon (click)="editData(d)">create</mat-icon>
+            <br>
+          </ng-container>
+        </div>
+      </td>
+      <td>
+        {{getDay(i+5)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+5)">
+            <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+            <mat-icon (click)="editData(d)">create</mat-icon>
+            <br>
+          </ng-container>
+        </div>
+      </td>
+      <td>
+        {{getDay(i+6)}}
+        <div style="overflow: auto;height: 66px">
+          <ng-container *ngFor="let d of getDayData(i+6)">
+            <span>{{d.First_Name}} {{d.Last_Name}} <strong>{{d.Time}}</strong></span>
+            <mat-icon (click)="editData(d)">create</mat-icon>
+            <br>
+          </ng-container>
+        </div>
+      </td>
+    </tr>
+    </ng-container>
+    </ng-container>
+  </table>
+</div>
