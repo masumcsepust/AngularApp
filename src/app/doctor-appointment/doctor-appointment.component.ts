@@ -18,7 +18,7 @@ export class DoctorAppointmentComponent implements OnInit {
     {"id": 5, "name": "May"},
     {"id": 6, "name": "June"},
     {"id": 7, "name": "July"},
-    {"id": 8, "name": "Auguest"},
+    {"id": 8, "name": "August"},
     {"id": 9, "name": "September"},
     {"id": 10, "name": "October"},
     {"id": 11, "name": "November"},
